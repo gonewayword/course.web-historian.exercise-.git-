@@ -25,17 +25,30 @@ exports.initialize = function(pathsObj) {
 // The following function names are provided to you to suggest how you might
 // modularize your code. Keep it clean!
 
-exports.readListOfUrls = function() {
+exports.readListOfUrls = function(callback) {
+  console.log(exports.paths.list, 'is this sites.txt');
+  return fs.readFile(exports.paths.list, callback);
 };
 
-exports.isUrlInList = function() {
+exports.isUrlInList = function(path) {
+  // exports.readListOfUrls(function(err, data) {
+  //   if (err) {
+  //     console.log('Error!');
+  //   }
+  //   data = data.toString();
+  //   if (data.indexOf(path) > - 1) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // });
 };
 
 exports.addUrlToList = function() {
 };
 
 exports.isUrlArchived = function(pathName) {
-  fs.readFile(`/Users/ConnorParsons/Documents/immersion2016/opspark/course.web-historian.exercise/web/archives/sites/${pathName}`, function(err, data) {
+  fs.readFile(`/Users/gonewayword/Hack_Reactor/sprints/course.web-historian.exercise/web/archives/sites${pathName}`, function(err, data) {
     if (err) {
       return false;
     } else {
