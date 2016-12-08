@@ -34,7 +34,14 @@ exports.isUrlInList = function() {
 exports.addUrlToList = function() {
 };
 
-exports.isUrlArchived = function() {
+exports.isUrlArchived = function(pathName) {
+  fs.readFile(`/Users/ConnorParsons/Documents/immersion2016/opspark/course.web-historian.exercise/web/archives/sites/${pathName}`, function(err, data) {
+    if (err) {
+      return false;
+    } else {
+      return true;
+    }
+  });
 };
 
 exports.downloadUrls = function() {
